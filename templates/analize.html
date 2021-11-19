@@ -1,0 +1,177 @@
+{% extends 'basic.html' %}
+
+{%load static%}
+
+
+{%block title%}Analyize page{% endblock %}
+{% block body %}
+
+<style>
+
+   .column {
+   margin-top: 80px;
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  }
+.x
+{
+  margin-left:230px;
+  margin-top:150px;
+}
+h3{
+  margin-left:30px;
+}
+</style>
+
+<div class="row">
+  <div class="column">
+
+<img src="{% static 'pie1.png'%}">
+
+  </div>
+    <div class="column x">
+        {% for item in senti%}
+    <table class="table table-bordered">
+
+    <tbody>
+    <tr>
+        <th>Sentiment Type</th>
+        <th> Number of tweets</th>
+    </tr>
+
+
+    <tr>
+        <th>Weakly Positive</th>
+        <td>{{item.Highly_Positive}}</td>
+
+    </tr>
+
+    <tr>
+        <th>Highly Positive</th>
+        <td>{{item.Weakly_Positive}}</td>
+
+    </tr>
+    <tr>
+        <th>Neutral</th>
+        <td>{{item.Neutral}}</td>
+
+    </tr>
+    <tr>
+        <th>Weakly Negative</th>
+        <td>{{item.Weakly_Negative}}</td>
+
+    </tr>
+    <tr>
+        <th>Highly Negative</th>
+        <td>{{item.Highly_Negative}}</td>
+
+    </tr>
+
+    </tbody>
+
+
+</table>
+{%endfor%}
+</div>
+</div>
+<div class="row">
+<div class="column">
+<h3> Positive WordCloud </h3>
+<img src="{% static 'pos.png'%}">
+</div>
+<div class="column">
+<h3> Negative WordCloud </h3>
+<img src="{% static 'neg.png'%}">
+</div>
+<div class="column">
+<h3> Neutral WordCloud </h3>
+<img src="{% static 'neu.png'%}">
+</div>
+</div>
+
+<div id="retweet">
+
+{% for item in retweet%}
+
+<table class="table table-bordered">
+
+    <tbody>
+    <tr>
+
+        <th colspan="2"> <h2><br><center>User {{ forloop.counter }}<center><h2><th>
+    </tr>
+    <tr>
+        <th>Basis</th>
+        <th> Values</th>
+    </tr>
+    <tr>
+        <th>DateTime</th>
+        <td>{{item.DateTime}}</td>
+
+    </tr>
+
+    <tr>
+        <th> Tweet ID</th>
+        <td><a href="https://twitter.com/{{item.name}}/status/{{item.Tweet_Id}}" target="_blank">{{item.Tweet_Id}}</a></td>
+    </tr>
+
+    <tr>
+        <th>User Name</th>
+        <td><a href="https://twitter.com/{{item.name}}" target="_blank">{{item.name}}</a></td>
+    </tr>
+
+    <tr>
+        <th>User Description</th>
+        <td>{{item.description}}</td>
+    </tr>
+
+    <tr>
+        <th>Tweet</th>
+        <td>{{item.Tweet}}</td>
+    </tr>
+
+    <tr>
+        <th>RetweetCount</th>
+        <td>{{item.Retweet}}</td>
+    </tr>
+
+    <tr>
+        <th>Location</th>
+        <td>{{item.Location}}</td>
+    </tr>
+
+    <tr>
+        <th>Sentiment</th>
+        <td>{{item.Label}}</td>
+    </tr>
+
+    <tr>
+        <th>Followers</th>
+        <td>{{item.followers_count}}</td>
+    </tr>
+
+    <tr>
+        <th>Following</th>
+        <td>{{item.following}}</td>
+    </tr>
+
+    <tr>
+        <th>Total Tweets of Account</th>
+        <td>{{item.total_tweets}}</td>
+    </tr>
+
+  </tbody>
+</table>
+{%endfor%}
+</div>
+{% endblock%}
+
+</html>

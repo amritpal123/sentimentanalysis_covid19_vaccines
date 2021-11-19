@@ -1,0 +1,255 @@
+{% load static%}
+
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+
+  </head>
+
+  <body>
+
+  <style>
+
+.nav2 {
+      background-image: url("{% static 'nav2.gif'%}");
+     background-repeat: repeat-x;
+}
+
+#navbarDropdown{
+
+position:relative;
+right:100px;
+}
+
+.y{
+
+right:80px;
+
+}
+
+.x{
+          width:20%;
+          height:100%;
+          margin-top: 80px;
+          }
+
+.margin{
+ margin-right:1000px;
+}
+
+</style>
+
+
+    <nav class=" nav2 navbar navbar-expand-lg navbar-light fixed-top">
+  <a class="navbar-brand margin" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+
+<!--
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline col-md-6" action="/sentiment/analizekey/" method="get">
+      <input class="form-control mr-sm-4"  name="keyword" size="35" type="search" placeholder="Search for Any Keyword" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+-->
+
+         <div class="y">
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font color="black" class="navbar-brand">Paid vs Free</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/home/paidvsfree/">Live Tweets</a>
+          <!--<a class="dropdown-item" href="/home/rank/">Recent Tweets</a> -->
+        </div>
+      </li>
+</div>
+        <div class="y">
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font color="black" class="navbar-brand">Vaccine Ranking</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/home/rank/">Live Tweets</a>
+          <!--<a class="dropdown-item" href="/home/rank/">Recent Tweets</a> -->
+        </div>
+      </li>
+</div>
+
+
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font color="black" class="navbar-brand">{{user.first_name}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Help</a>
+          <a class="dropdown-item" href="#">Account Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/sentiment/logout/">Log Out</a>
+        </div>
+      </li>
+    </nav>
+
+<br>
+<br>
+
+<div class="y">
+<div class="list-group x">
+  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+
+      <h5 class="mb-1">AstraZeneca</h5>
+      
+    </div>
+    <br>
+    <div>
+        <button class="btn btn-outline-success my-2 my-sm-0"  onclick="window.location.href='{% url 'analize' 'AstraZeneca' %}'">Live Tweets</button>
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0"  >Recent Tweets</button> -->
+
+    </div>
+    <br>
+    <div>
+    <p class="mb-1">#AstraZeneca #astrazenecavaccine #OXFORDVACCINE #GenXZeneca</p>
+    </div>
+
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+
+       <h5 class="mb-1">Covishield</h5>
+      
+    </div>
+
+    <br>
+
+    <div>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='{% url 'analize' 'Covishield' %}'">Live Tweets</button>
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" >Recent Tweets</button> -->
+    </div>
+
+    <br>
+
+    <div>
+    <p class="mb-1">#covishield #covishieldvaccine #covishieldsideeffects</p>
+    </div>
+
+  </a>
+
+    <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+
+       <h5 class="mb-1">Covaxin</h5>
+
+    </div>
+
+    <br>
+
+    <div>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='{% url 'analize' 'Covaxin' %}'">Live Tweets</button>
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" >Recent Tweets</button> -->
+    </div>
+
+    <br>
+
+    <div>
+    <p class="mb-1">#covaxin #covaxine #BharatBiotech</p>
+    </div>
+
+  </a>
+
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      
+     <h5 class="mb-1">Moderna</h5>
+      
+    </div>
+    
+   <br>
+
+    <div>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='{% url 'analize' 'Moderna' %}'">Live Tweets</button>
+     <!-- <button class="btn btn-outline-success my-2 my-sm-0" >Recent Tweets</button> -->
+    </div>
+
+    <br>
+
+    <div>
+    <p class="mb-1">#Moderna</p>
+    </div>
+
+  </a>
+
+<a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      
+     <h5 class="mb-1">Pfizer</h5>
+      
+    </div>
+    
+   <br>
+
+    <div>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='{% url 'analize' 'Pfizer' %}'">Live Tweets</button>
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" >Recent Tweets</button> -->
+    </div>
+
+    <br>
+
+    <div>
+    <p class="mb-1">#Pfizer, #PfizerVaccine</p>
+    </div>
+
+  </a>
+
+<a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      
+     <h5 class="mb-1">SputnikV</h5>
+      
+    </div>
+    
+   <br>
+
+    <div>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='{% url 'analize' 'SputnikV' %}'">Live Tweets</button>
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" >Recent Tweets</button> -->
+
+    </div>
+
+    <br>
+
+    <div>
+    <p class="mb-1">#SputnikV, #sputnik, #SputnikLight
+
+</p>
+    </div>
+
+  </a>
+</div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
